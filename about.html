@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+</head>
+
+<body>
+
+
+    <section>
+        <header class="container">
+            <div class="page-header">
+                
+                <input type="checkbox" id="click">
+
+                <label for="click" class="mainicon">
+                    <div class="menu">
+                        <i class='bx bx-menu'></i>
+                    </div>
+                </label>
+                <ul>
+                    <li><a href="index.html" class="active" style="--navAni:1">Home</a></li>
+                    <li><a href="about.html" style="--navAni:2">About</a></li>
+                    <li><a href="skills.html" style="--navAni:3">Skills</a></li>
+                    <li><a href="projects.html" style="--navAni:4">Projects</a></li>
+                    <li><a href="#" style="--navAni:5"></a></li>
+                </ul>
+                <label class="mode">
+                    <input type="checkbox" id="darkModeToggle">
+                    <i class='bx bxs-moon'></i>
+                </label>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="main">
+                <div class="detail">
+                    <h1><span style="color:#52489C;">A little </span> about myself:</h1>
+                    <p> I discovered the Dev area through my brother, he is currently studying Software Engineering,
+                        so he showed me a little about this Tech world,
+                        At first I was enchanted and went to find out more, my first contact was with
+                        JavaScript first and foremost, I discovered it through an immersion
+                        by Alura, since then I have been studying and improving myself, taking courses focused on Front-End,
+                        Currently, in addition to studying, I do some freelance work
+                        for companies in my region!
+                    </p>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/%C3%ADtalo-taveira-205212173/" style="--socialAni:1"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="https://www.instagram.com/italotaveira/" style="--socialAni:2"><i
+                                class='bx bxl-instagram'></i></a>
+                        <a href="https://github.com/ItaloTaveira" style="--socialAni:3"><i
+                                class='bx bxl-github'></i></a>
+                        <button class="email-btn" id="email-btn" onclick="copyEmail()">italotaveira@outlook.com</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+        function copyEmail() {
+            var emailText = "italotaveira@outlook.com";
+            var tempInput = document.createElement("input");
+            tempInput.value = emailText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            alert("E-mail copiado: " + emailText);
+        };
+    </script>
+</body>
+
+</html>
